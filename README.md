@@ -71,20 +71,23 @@ where maintainid=(select maintainid from maintain where eqid='4');<br/>
 use system;<br/>
 select * from equipment<br/>
 where equipmentid=’2’;<br/>
-<br/>
+![2](https://github.com/cxins/MIS/blob/master/%E5%9B%BE%E7%89%872.png)<br/><br/>
 use system;<br/>
 select * from maintain<br/>
 where eqid=’3’;<br/>
+![3](https://github.com/cxins/MIS/blob/master/%E5%9B%BE%E7%89%873.png)
 <br/>
 <br/>
 use system;<br/>
 select * from equipment<br/>
 where timeid=(select timeid from time where timename=’月检’);<br/>
-<br/>
+![4](https://github.com/cxins/MIS/blob/master/%E5%9B%BE%E7%89%874.png)<br/>
 use system;<br/>
 select eqid from record<br/>
-where 365-datediff(now(),(select date1 from record))<10;<br/>
+where 365-datediff(now(),(select date1 from record))<10; <br/>
+![5](https://github.com/cxins/MIS/blob/master/%E5%9B%BE%E7%89%875.png)<br/>
 E-R图：<br/>
+![5](https://github.com/cxins/MIS/blob/master/ER.PNG)
 <br/>
 Axure:http://i03ntx.axshare.com<br/>
 附件：http://pan.baidu.com/s/1i45vxQX<br/>
