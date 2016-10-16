@@ -67,7 +67,7 @@ CREATE TABLE `time` (<br/>
 use system;<br/>
 select * from record<br/>
 where maintainid=(select maintainid from maintain where eqid='4');<br/>
-<br/>
+![1](https://github.com/cxins/MIS/blob/master/%E5%9B%BE%E7%89%871.png)<br/>
 use system;<br/>
 select * from equipment<br/>
 where equipmentid=’2’;<br/>
