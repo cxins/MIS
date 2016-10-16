@@ -86,5 +86,5 @@ select eqid from record<br/>
 where 365-datediff(now(),(select date1 from record))<10;<br/>
 E-R图：<br/>
 <br/>
-Axure:<br/>
+Axure:http://i03ntx.axshare.com<br/>
 
