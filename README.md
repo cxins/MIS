@@ -87,4 +87,5 @@ where 365-datediff(now(),(select date1 from record))<10;<br/>
 E-R图：<br/>
 <br/>
 Axure:http://i03ntx.axshare.com<br/>
+附件：http://pan.baidu.com/s/1i45vxQX<br/>
 
