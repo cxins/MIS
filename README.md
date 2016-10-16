@@ -11,6 +11,10 @@ CREATE TABLE `consume` (<br/>
   CONSTRAINT `materialid` FOREIGN KEY (`materialid`) REFERENCES `material` (`materialid`) ON DELETE NO ACTION ON UPDATE NO ACTION,<br/>
   CONSTRAINT `recordidd` FOREIGN KEY (`reid`) REFERENCES `record` (`recordid`) ON DELETE NO ACTION ON UPDATE NO ACTION<br/>
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<br/>
+INSERT INTO `consume` VALUES ('1', '3', '11');<br/>
+INSERT INTO `consume` VALUES ('2', '2', '10');<br/>
+INSERT INTO `consume` VALUES ('3', '1', '8');<br/>
+
 <br/>
 DROP TABLE IF EXISTS `equipment`;<br/>
 CREATE TABLE `equipment` (<br/>
@@ -21,7 +25,11 @@ CREATE TABLE `equipment` (<br/>
   KEY `time_idx` (`timeid`),<br/>
   CONSTRAINT `time` FOREIGN KEY (`timeid`) REFERENCES `time` (`timeid`) ON DELETE NO ACTION ON UPDATE NO ACTION<br/>
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;<br/>
-
+INSERT INTO `equipment` VALUES ('1', '6000V及以上电机', '1');<br/>
+INSERT INTO `equipment` VALUES ('2', '6000V以下不带振动电机', '1');<br/>
+INSERT INTO `equipment` VALUES ('3', '6000V以下带振动电机', '2');<br/>
+INSERT INTO `equipment` VALUES ('4', 'CST', '4');<br/>
+INSERT INTO `equipment` VALUES ('5', 'PLC', '4');<br/>
 DROP TABLE IF EXISTS `maintain`;<br/>
 CREATE TABLE `maintain` (<br/>
   `maintainid` int(11) NOT NULL AUTO_INCREMENT COMMENT '维修项目id',<br/>
@@ -33,6 +41,10 @@ CREATE TABLE `maintain` (<br/>
   KEY `shebeiid_idx` (`eqid`),<br/>
   CONSTRAINT `shebeiid` FOREIGN KEY (`eqid`) REFERENCES `equipment` (`equipmentid`) ON DELETE NO ACTION ON UPDATE NO ACTION<br/>
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;<br/>
+INSERT INTO `maintain` VALUES ('1', '接线盒开盖检查', '3', '完成', null);<br/>
+INSERT INTO `maintain` VALUES ('2', '电机电缆头固定、磨损情况', '3', '完成', null);<br/>
+INSERT INTO `maintain` VALUES ('3', '电机接线盒的密封情况', '3', '完成', null);<br/>
+INSERT INTO `maintain` VALUES ('4', '检查电磁阀的好坏', '4', '完成', null);<br/>
 <br/>
 DROP TABLE IF EXISTS `material`;<br/>
 CREATE TABLE `material` (<br/>
@@ -40,6 +52,10 @@ CREATE TABLE `material` (<br/>
   `materialname` varchar(225) DEFAULT NULL COMMENT '材料名称',<br/>
   PRIMARY KEY (`materialid`)<br/>
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;<br/>
+INSERT INTO `material` VALUES ('1', '电磁阀');<br/>
+INSERT INTO `material` VALUES ('2', '接线盒');<br/>
+INSERT INTO `material` VALUES ('3', '电缆头');<br/>
+
 <br/>
 <br/>
 DROP TABLE IF EXISTS `record`;<br/>
@@ -56,6 +72,10 @@ CREATE TABLE `record` (<br/>
   CONSTRAINT `eeqid` FOREIGN KEY (`eqid`) REFERENCES `equipment` (`equipmentid`) ON DELETE NO ACTION ON UPDATE NO ACTION,<br/>
   CONSTRAINT `mainid` FOREIGN KEY (`maintainid`) REFERENCES `maintain` (`maintainid`) ON DELETE NO ACTION ON UPDATE NO ACTION<br/>
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;<br/>
+INSERT INTO `record` VALUES ('1', '王小二', '2016-10-04', '3', '2', '1');<br/>
+INSERT INTO `record` VALUES ('2', '王小二', '2016-03-02', '3', '3', '1');<br/>
+INSERT INTO `record` VALUES ('3', '张三', '2015-01-03', '4', '4', '2');<br/>
+
 DROP TABLE IF EXISTS `time`;<br/>
 CREATE TABLE `time` (<br/>
   `timeid` int(11) NOT NULL AUTO_INCREMENT,<br/>
@@ -63,6 +83,13 @@ CREATE TABLE `time` (<br/>
   PRIMARY KEY (`timeid`)<br/>
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 <br/>
+INSERT INTO `time` VALUES ('1', '年检');<br/>
+INSERT INTO `time` VALUES ('2', '半年检');<br/>
+INSERT INTO `time` VALUES ('3', '双月检');<br/>
+INSERT INTO `time` VALUES ('4', '月检');<br/>
+INSERT INTO `time` VALUES ('5', '周检');<br/>
+<br/>
+
 查询：<br/>
 use system;<br/>
 select * from record<br/>
